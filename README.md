@@ -13,6 +13,3 @@ Actualmente permite administrar usuarios con distintos niveles de permisos (Usua
 * JDBC
 * Git y GitHub
 
-## Estado
-
-🚧 En desarrollo.
