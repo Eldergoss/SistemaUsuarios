@@ -1,5 +1,3 @@
-
-
 public class User {
 
     protected int id;
@@ -8,8 +6,11 @@ public class User {
     protected String contraseña;
     protected int rol;
 
-    public User(int id, String nombre, String correo,
-                String contraseña, int rol) {
+    public User(int id,
+                String nombre,
+                String correo,
+                String contraseña,
+                int rol) {
 
         this.id = id;
         this.nombre = nombre;
@@ -17,6 +18,26 @@ public class User {
         this.contraseña = contraseña;
         this.rol = rol;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public int getRol() {
+        return rol;
     }
 
 }

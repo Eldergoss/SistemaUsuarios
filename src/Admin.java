@@ -10,13 +10,13 @@ public class Admin extends User {
     }
 
     // Agregar usuario
-    public void agregarUsuario(UserRepository repositorio, User usuario) {
+    //public void agregarUsuario(UserRepository repositorio, User usuario) {
 
-        repositorio.agregar(usuario);
+       // repositorio.agregar(usuario);
 
-        System.out.println("Usuario agregado: " + usuario.nombre);
+        //System.out.println("Usuario agregado: " + usuario.nombre);
 
-    }
+    //}
 
     // Eliminar usuario
     public void eliminarUsuario(UserRepository repositorio, User usuario) {
