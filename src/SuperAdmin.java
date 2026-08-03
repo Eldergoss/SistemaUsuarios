@@ -1,3 +1,5 @@
+
+
 public class SuperAdmin extends User {
 
     public SuperAdmin(int id, String nombre, String correo,
