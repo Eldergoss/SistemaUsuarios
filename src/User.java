@@ -40,4 +40,9 @@ public class User {
         return rol;
     }
 
+    public void setRol(int rol) {
+
+    this.rol = rol;
+    }
+
 }

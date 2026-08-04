@@ -220,7 +220,7 @@ public class UserRepository {
 
         ArrayList<User> admins = new ArrayList<>();
 
-        String sql = "SELECT * FROM users WHERE rol = 1";
+        String sql = "SELECT * FROM users WHERE rol >= 10";
 
         try (
             Connection conexion = Database.conectar();
