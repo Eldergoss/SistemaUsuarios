@@ -1,12 +1,12 @@
-
 public class AuthenticationService {
 
     // Usuario que tiene la sesión iniciada
     private User usuarioActual;
 
-    public boolean autenticar(UserRepository repositorio,
-                              String correo,
-                              String contraseña) {
+    public boolean autenticar(
+            UserRepository repositorio,
+            String correo,
+            String contraseña) {
 
         // Buscar el usuario por correo
         User usuario = repositorio.buscarPorCorreo(correo);
@@ -16,8 +16,12 @@ public class AuthenticationService {
             return false;
         }
 
-        // ¿La contraseña coincide?
-        if (!usuario.contraseña.equals(contraseña)) {
+        // Hashear la contraseña introducida
+        String contraseñaHash =
+                PasswordUtils.hashContraseña(contraseña);
+
+        // ¿El hash coincide con el almacenado?
+        if (!usuario.contraseña.equals(contraseñaHash)) {
             return false;
         }
 
@@ -30,13 +34,15 @@ public class AuthenticationService {
     public User obtenerUsuarioActual() {
 
         return usuarioActual;
-}
+    }
 
     public void cerrarSesion() {
+
         usuarioActual = null;
     }
 
     public boolean haySesion() {
+
         return usuarioActual != null;
     }
 

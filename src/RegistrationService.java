@@ -9,7 +9,9 @@ public class RegistrationService {
     // Constructor
     // ==========================
     public RegistrationService(UserRepository repositorio) {
+
         this.repositorio = repositorio;
+
     }
 
     // ==========================
@@ -24,24 +26,42 @@ public class RegistrationService {
         User existente = repositorio.buscarPorCorreo(correo);
 
         if (existente != null) {
-            System.out.println("El correo ya está registrado.");
+
+            System.out.println(
+                    "El correo ya está registrado."
+            );
+
             return null;
         }
 
-        // Crear el objeto User
+        // ==========================
+        // Hashear contraseña
+        // ==========================
+
+        String contraseñaHash =
+                PasswordUtils.hashContraseña(contraseña);
+
+        // ==========================
+        // Crear usuario
+        // ==========================
+
         User usuario = new User(
                 0,
                 nombre,
                 correo,
-                contraseña,
-                0 // Rol de usuario
+                contraseñaHash,
+                0
         );
 
-        // Guardarlo en la base de datos
+        // ==========================
+        // Guardar en base de datos
+        // ==========================
+
         repositorio.agregar(usuario);
 
-        // Devolver el usuario creado
+        // Devolver usuario creado
         return usuario;
+
     }
 
 }
